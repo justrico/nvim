@@ -1,9 +1,38 @@
+local keymap = vim.api.nvim_set_keymap
+local nore = { noremap = true }
+
+keymap('n', '<leader>tt', ':NvimTreeToggle<cr>', nore)
+
+ auto_close solutions, https://github.com/nvim-tree/nvim-tree.lua/wiki/Auto-Close
+local modifiedBufs = function(bufs)
+    local t = 0
+    for k,v in pairs(bufs) do
+        if v.name:match("NvimTree_") == nil then
+            t = t + 1
+        end
+    end
+    return t
+end
+
+vim.api.nvim_create_autocmd("BufEnter", {
+    nested = true,
+    callback = function()
+        if #vim.api.nvim_list_wins() == 1 and
+        vim.api.nvim_buf_get_name(0):match("NvimTree_") ~= nil and
+        modifiedBufs(vim.fn.getbufinfo({bufmodified = 1})) == 0 then
+            vim.cmd "quit"
+        end
+    end
+})
+
+
 ---@diagnostic disable: undefined-global
 require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
+    -- auto_close = true, -- removed by author, https://github.com/nvim-tree/nvim-tree.lua/issues/1005
 	auto_reload_on_write = true,
-	disable_netrw = false,
+	disable_netrw = true,
 	hijack_cursor = false,
-	hijack_netrw = true,
+	hijack_netrw = false,
 	hijack_unnamed_buffer_when_opening = false,
 	ignore_buffer_on_setup = false,
 	open_on_setup = false,
@@ -22,7 +51,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
 		centralize_selection = true,
 		cursorline = true,
 		debounce_delay = 15,
-		width = 30,
+		width = 23,
 		hide_root_folder = true,
 		side = "left",
 		preserve_window_proportions = true,
@@ -33,6 +62,55 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
 			custom_only = false,
 			list = {
 				-- user mappings go here
+                { key = { "<CR>", "<2-LeftMouse>" }, action = "edit" },
+                { key = "pp", action = "edit_in_place" },
+                { key = "po", action = "edit_no_picker" },
+                { key = { "i", "<2-RightMouse>" }, action = "cd" },
+                { key = "pn", action = "vsplit" },
+                { key = "pu", action = "split" },
+                { key = "ptp", action = "tabnew" },
+                { key = "u", action = "prev_sibling" },
+                { key = "e", action = "next_sibling" },
+                { key = "n", action = "parent_node" },
+                { key = "o", action = "close_node" },
+                { key = "<Tab>", action = "preview" },
+                { key = "U", action = "first_sibling" },
+                { key = "E", action = "last_sibling" },
+                { key = "gc", action = "toggle_git_clean" },
+                { key = "gi", action = "toggle_git_ignored" },
+                { key = "H", action = "toggle_dotfiles" },
+                { key = "<BS>", action = "toggle_no_buffer" },
+                { key = "<C-u>", action = "toggle_custom" },
+                { key = "<F5>", action = "refresh" },
+                { key = "a", action = "create" },
+                { key = "d", action = "remove" },
+                { key = "D", action = "trash" },
+                { key = "cn", action = "rename" },
+                { key = "<C-r>", action = "full_rename" },
+                { key = "r", action = "rename_basename" },
+                { key = "x", action = "cut" },
+                { key = "c", action = "copy" },
+                { key = "p", action = "paste" },
+                { key = "y", action = "copy_name" },
+                { key = "Y", action = "copy_path" },
+                { key = "gy", action = "copy_absolute_path" },
+                { key = "[e", action = "prev_diag_item" },
+                { key = "[c", action = "prev_git_item" },
+                { key = "]e", action = "next_diag_item" },
+                { key = "]c", action = "next_git_item" },
+                { key = "-",  action = "dir_up" },
+                { key = "S", action = "system_open" },
+                { key = "f", action = "live_filter" },
+                { key = "F", action = "clear_live_filter" },
+                { key = "q", action = "close" },
+                { key = "W", action = "collapse_all" },
+                { key = "E", action = "expand_all" },
+                { key = "s", action = "search_node" },
+                { key = ".", action = "run_file_command" },
+                { key = "<C-k>", action = "toggle_file_info" },
+                { key = "g?", action = "toggle_help" },
+                { key = "m", action = "toggle_mark" },
+                { key = "bmv", action = "bulk_move" },
 			},
 		},
 		float = {
@@ -97,12 +175,12 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
 					symlink_open = "",
 				},
 				git = {
-					unstaged = "✗",
+					unstaged = "★",
 					staged = "✓",
 					unmerged = "",
-					renamed = "➜",
-					untracked = "★",
 					deleted = "",
+					renamed = "➜",
+					untracked = "✗",
 					ignored = "◌",
 				},
 			},
@@ -141,11 +219,15 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
 		},
 	},
 	filters = {
-		dotfiles = false,
+		dotfiles = false,  -- false is to display dotfiles
 		git_clean = false,
 		no_buffer = false,
-		custom = {},
-		exclude = {},
+		custom = {  -- this section won't be displayed
+            ".git/",
+        },
+		exclude = { -- this section will be displayed
+            ".gitignore",
+        },
 	},
 	filesystem_watchers = {
 		enable = true,
