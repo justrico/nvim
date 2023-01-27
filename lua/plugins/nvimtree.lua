@@ -3,7 +3,7 @@ local nore = { noremap = true }
 
 keymap('n', '<leader>tt', ':NvimTreeToggle<cr>', nore)
 
- auto_close solutions, https://github.com/nvim-tree/nvim-tree.lua/wiki/Auto-Close
+-- auto_close solutions, https://github.com/nvim-tree/nvim-tree.lua/wiki/Auto-Close
 local modifiedBufs = function(bufs)
     local t = 0
     for k,v in pairs(bufs) do
