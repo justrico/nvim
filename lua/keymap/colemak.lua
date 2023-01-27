@@ -17,9 +17,8 @@ keymap( '', 'U', '3k', nosi )
 keymap( '', 'E', '3j', nosi )
 
 -- insert key
-keymap( 'n', 'k', 'i', nore )
-keymap( 'n', 'K', 'I', nore )
-keymap( 'x', 'K', 'I', nore )
+keymap( '', 'k', 'i', nore )
+keymap( '', 'K', 'I', nore )
 
 -- go to two ends of the line
 keymap( '', 'N', '0', nosi )
