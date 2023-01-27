@@ -9,7 +9,7 @@ local basic_map = {
 	['n|s'] = map(''):noremap(),
 		-- save & quit
 	['n|S'] = mapcr('w'):noremap(),
-    ['n|Q'] = mapcr('bdelete'):noremap(),
+    ['n|Q'] = mapcr('BufferLinePickClose'):noremap(),
 	['n|<A-q>'] = mapcr('q'):noremap(),
 	['n|<A-Q>'] = mapcr('qa'):noremap(),
 	['n|l'] = map('u'):noremap(),
@@ -18,6 +18,9 @@ local basic_map = {
 	['n|-'] = map('Nzz'):noremap(),
 		-- toggle search highlight
 	['n|<leader>h'] = mapcr('set hlsearch!'):noremap():silent(),
+        -- buffer
+    ['n|<leader>i'] = mapcr('bn'):noremap(),
+    ['n|<leader>n'] = mapcr('bp'):noremap(),
 		-- tab management
 	['n|tu'] = mapcr('tabnew'):noremap(),
 	['n|ti'] = mapcr('tabnext'):noremap(),
