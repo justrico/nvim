@@ -63,12 +63,12 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
 			list = {
 				-- user mappings go here
                 { key = { "<CR>", "<2-LeftMouse>" }, action = "edit" },
-                { key = "pp", action = "edit_in_place" },
-                { key = "po", action = "edit_no_picker" },
+                { key = "tp", action = "edit_in_place" },
+                { key = "to", action = "edit_no_picker" },
                 { key = { "i", "<2-RightMouse>" }, action = "cd" },
-                { key = "pn", action = "vsplit" },
-                { key = "pu", action = "split" },
-                { key = "ptp", action = "tabnew" },
+                { key = "tn", action = "vsplit" },
+                { key = "tu", action = "split" },
+                { key = "ttp", action = "tabnew" },
                 { key = "u", action = "prev_sibling" },
                 { key = "e", action = "next_sibling" },
                 { key = "n", action = "parent_node" },
@@ -292,8 +292,8 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
 	},
 	tab = {
 		sync = {
-			open = false,
-			close = false,
+			open = true,
+			close = true,
 			ignore = {},
 		},
 	},

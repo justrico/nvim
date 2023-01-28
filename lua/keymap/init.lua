@@ -19,8 +19,9 @@ local basic_map = {
 		-- toggle search highlight
 	['n|<leader>h'] = mapcr('set hlsearch!'):noremap():silent(),
         -- buffer
-    ['n|<leader>i'] = mapcr('bn'):noremap(),
-    ['n|<leader>n'] = mapcr('bp'):noremap(),
+    ['n|tb'] = mapcr('BufferLinePick'):noremap(),
+    --['n|<leader>ti'] = mapcr('bnext'):noremap(),
+    --['n|<leader>tn'] = mapcr('bprev'):noremap(),
 		-- tab management
 	['n|tu'] = mapcr('tabnew'):noremap(),
 	['n|ti'] = mapcr('tabnext'):noremap(),
