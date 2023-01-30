@@ -9,7 +9,7 @@ local basic_map = {
 	['n|s'] = map(''):noremap(),
 		-- save & quit
 	['n|S'] = mapcr('w'):noremap(),
-    ['n|Q'] = mapcr('BufferLinePickClose'):noremap(),
+    ['n|Q'] = mapcr('BufferLinePickClose'):noremap():silent(),
 	['n|<A-q>'] = mapcr('q'):noremap(),
 	['n|<A-Q>'] = mapcr('qa'):noremap(),
 	['n|l'] = map('u'):noremap(),
@@ -19,34 +19,34 @@ local basic_map = {
 		-- toggle search highlight
 	['n|<leader>h'] = mapcr('set hlsearch!'):noremap():silent(),
         -- buffer
-    --['n|tb'] = mapcr('BufferLinePick'):noremap(),
-    --['n|<leader>ti'] = mapcr('bn'):noremap(),
-    --['n|<leader>tn'] = mapcr('bp'):noremap(),
+    ['n|tb'] = mapcr('BufferLinePick'):noremap():silent(),
+    --['n|<leader>ti'] = mapcr('bnext'):noremap(),
+    --['n|<leader>tn'] = mapcr('bprev'):noremap(),
 		-- tab management
-	['n|tu'] = mapcr('tabnew'):noremap(),
-	['n|ti'] = mapcr('tabnext'):noremap(),
-	['n|tn'] = mapcr('tabprevious'):noremap(),
-	['n|tmi'] = mapcr('+tabmove'):noremap(),
-	['n|tmn'] = mapcr('-tabmove'):noremap(),
+	['n|tu'] = mapcr('tabnew'):noremap():silent(),
+	['n|ti'] = mapcr('tabnext'):noremap():silent(),
+	['n|tn'] = mapcr('tabprevious'):noremap():silent(),
+	['n|tmi'] = mapcr('+tabmove'):noremap():silent(),
+	['n|tmn'] = mapcr('-tabmove'):noremap():silent(),
         -- window cursor movement
-    ['n|<leader>w'] = map('<c-w>w'):noremap(),  -- cursor loop in windows
-    ['n|<leader>n'] = map('<c-w>h'):noremap(),
-    ['n|<leader>e'] = map('<c-w>j'):noremap(),
-    ['n|<leader>u'] = map('<c-w>k'):noremap(),
-    ['n|<leader>i'] = map('<c-w>l'):noremap(),
+    ['n|<leader>w'] = map('<c-w>w'):noremap():silent(),  -- cursor loop in windows
+    ['n|<leader>n'] = map('<c-w>h'):noremap():silent(),
+    ['n|<leader>e'] = map('<c-w>j'):noremap():silent(),
+    ['n|<leader>u'] = map('<c-w>k'):noremap():silent(),
+    ['n|<leader>i'] = map('<c-w>l'):noremap():silent(),
         -- open new window to four direction
-    ['n|su'] = mapcr('set nosplitbelow<CR>:split<CR>:set splitbelow'):noremap(),
-    ['n|se'] = mapcr('set splitbelow<CR>:split'):noremap(),
-    ['n|sn'] = mapcr('set nosplitright<CR>:vsplit<CR>:set splitright'):noremap(),
-    ['n|si'] = mapcr('set splitright<CR>:vsplit'):noremap(),
+    ['n|su'] = mapcr('set nosplitbelow<CR>:split<CR>:set splitbelow'):noremap():silent(),
+    ['n|se'] = mapcr('set splitbelow<CR>:split'):noremap():silent(),
+    ['n|sn'] = mapcr('set nosplitright<CR>:vsplit<CR>:set splitright'):noremap():silent(),
+    ['n|si'] = mapcr('set splitright<CR>:vsplit'):noremap():silent(),
         -- resize window with arrow keys
-    ['n|<up>'] = mapcr('res -3'):noremap(),
-    ['n|<down>'] = mapcr('res +3'):noremap(),
-    ['n|<left>'] = mapcr('vertical resize+3'):noremap(),
-    ['n|<right>'] = mapcr('vertical resize-3'):noremap(),
+    ['n|<up>'] = mapcr('res -3'):noremap():silent(),
+    ['n|<down>'] = mapcr('res +3'):noremap():silent(),
+    ['n|<left>'] = mapcr('vertical resize+3'):noremap():silent(),
+    ['n|<right>'] = mapcr('vertical resize-3'):noremap():silent(),
         -- change windows layout
-    ['n|sh'] = map('<c-w>b<c-w>K'):noremap(),
-    ['n|sv'] = map('<c-w>b<c-w>H'):noremap(),
+    ['n|sh'] = map('<c-w>b<c-w>K'):noremap():silent(),
+    ['n|sv'] = map('<c-w>b<c-w>H'):noremap():silent(),
 }
 
 bind.nvim_load_mapping(basic_map)
