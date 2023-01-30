@@ -1,7 +1,9 @@
-local keymap = vim.api.nvim_set_keymap
-local nore = { noremap = true }
+-- 切换到 nvim-neo-tree, 不再用 nvimtree
 
-keymap('n', '<leader>tt', ':NvimTreeToggle<cr>', nore)
+local keymap = vim.api.nvim_set_keymap
+local nosi = { noremap = true, silent = true }
+
+keymap('n', '<leader>tt', ':NvimTreeToggle<cr>', nosi)
 
 -- auto_close solutions, https://github.com/nvim-tree/nvim-tree.lua/wiki/Auto-Close
 local modifiedBufs = function(bufs)
@@ -65,20 +67,22 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
                 { key = { "<CR>", "<2-LeftMouse>" }, action = "edit" },
                 { key = "tp", action = "edit_in_place" },
                 { key = "to", action = "edit_no_picker" },
-                { key = { "i", "<2-RightMouse>" }, action = "cd" },
+                { key = { "o", "<2-RightMouse>" }, action = "cd" },
                 { key = "tn", action = "vsplit" },
                 { key = "tu", action = "split" },
                 { key = "ttp", action = "tabnew" },
                 { key = "u", action = "prev_sibling" },
                 { key = "e", action = "next_sibling" },
-                { key = "n", action = "parent_node" },
-                { key = "o", action = "close_node" },
+                { key = "-", action = "parent_node" },
                 { key = "<Tab>", action = "preview" },
                 { key = "U", action = "first_sibling" },
                 { key = "E", action = "last_sibling" },
+                { key = "n",  action = "dir_up" },
+                { key = "i", action = "open_node" },
+                -- { key = "o", action = "close_node" },
                 { key = "gc", action = "toggle_git_clean" },
                 { key = "gi", action = "toggle_git_ignored" },
-                { key = "H", action = "toggle_dotfiles" },
+                { key = "h", action = "toggle_dotfiles" },
                 { key = "<BS>", action = "toggle_no_buffer" },
                 { key = "<C-u>", action = "toggle_custom" },
                 { key = "<F5>", action = "refresh" },
@@ -98,7 +102,6 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
                 { key = "[c", action = "prev_git_item" },
                 { key = "]e", action = "next_diag_item" },
                 { key = "]c", action = "next_git_item" },
-                { key = "-",  action = "dir_up" },
                 { key = "S", action = "system_open" },
                 { key = "f", action = "live_filter" },
                 { key = "F", action = "clear_live_filter" },
@@ -254,7 +257,7 @@ require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
 			restrict_above_cwd = false,
 		},
 		expand_all = {
-			max_folder_discovery = 300,
+			max_folder_discovery = 20,
 			exclude = {},
 		},
 		file_popup = {
