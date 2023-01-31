@@ -28,7 +28,7 @@ require('bufferline').setup{
         diagnostics_update_in_insert = false,
         offsets = {
             {
-                filetype = "NvimTree",
+                filetype = "neo-tree",
                 text = "File Explorer", -- "File Explorer" | function
                 text_align = "left", -- "left" | "center" | "right"
                 separator = true

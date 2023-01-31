@@ -35,18 +35,18 @@ local basic_map = {
     ['n|<leader>u'] = map('<c-w>k'):noremap():silent(),
     ['n|<leader>i'] = map('<c-w>l'):noremap():silent(),
         -- open new window to four direction
-    ['n|su'] = mapcr('set nosplitbelow<CR>:split<CR>:set splitbelow'):noremap():silent(),
-    ['n|se'] = mapcr('set splitbelow<CR>:split'):noremap():silent(),
-    ['n|sn'] = mapcr('set nosplitright<CR>:vsplit<CR>:set splitright'):noremap():silent(),
-    ['n|si'] = mapcr('set splitright<CR>:vsplit'):noremap():silent(),
+    ['n|<leader>su'] = mapcr('set nosplitbelow<CR>:split<CR>:set splitbelow'):noremap():silent(),
+    ['n|<leader>se'] = mapcr('set splitbelow<CR>:split'):noremap():silent(),
+    ['n|<leader>sn'] = mapcr('set nosplitright<CR>:vsplit<CR>:set splitright'):noremap():silent(),
+    ['n|<leader>si'] = mapcr('set splitright<CR>:vsplit'):noremap():silent(),
         -- resize window with arrow keys
     ['n|<up>'] = mapcr('res -3'):noremap():silent(),
     ['n|<down>'] = mapcr('res +3'):noremap():silent(),
     ['n|<left>'] = mapcr('vertical resize+3'):noremap():silent(),
     ['n|<right>'] = mapcr('vertical resize-3'):noremap():silent(),
         -- change windows layout
-    ['n|sh'] = map('<c-w>b<c-w>K'):noremap():silent(),
-    ['n|sv'] = map('<c-w>b<c-w>H'):noremap():silent(),
+    ['n|<leader>sh'] = map('<c-w>b<c-w>K'):noremap():silent(),
+    ['n|<leader>sv'] = map('<c-w>b<c-w>H'):noremap():silent(),
 }
 
 bind.nvim_load_mapping(basic_map)
