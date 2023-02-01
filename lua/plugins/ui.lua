@@ -2,6 +2,50 @@
 vim.cmd.colorscheme "catppuccin-frappe"
 
 
+-- indent-blankline.nvim
+require('indent_blankline').setup{
+    enabled = true,
+    space_char_blankline = " ",
+    use_treesitter = true,
+    char_highlight = 'LineNr',
+    space_char_blankline = ' ',
+    show_current_context = true,
+    show_current_context_start = true,
+    show_end_of_line = false,
+    show_first_indent_level = true,
+    show_trailing_blankline_indent = false,
+    viewport_buffer = 20,
+    context_highlight_list = {
+        'rainbowcol1',
+        'rainbowcol2',
+        'rainbowcol3',
+        'rainbowcol4',
+        'rainbowcol5',
+        'rainbowcol6',
+        'rainbowcol7',
+    },
+    buftype_exclude= {
+        'quickfix',
+        'help',
+        'nofile',
+        'prompt',
+        'terminal',
+    },
+    filetype_exclude = {
+        '',
+        'neo-tree',
+        'Trouble',
+        'dashboard',
+        'fugitive*',
+        'git*',
+        'help',
+        'lspinfo',
+        'mason',
+        'packer',
+    }
+}
+
+
 -- bufferline
 require('bufferline').setup{
     options = {
@@ -62,14 +106,14 @@ require('bufferline').setup{
 
 -- lualine
 local colors = {
-	red = '#cdd6f4',
-	grey = '#181825',
-	black = '#303446',
-	white = '#1e1e2e',
-	light_green = '#6c7086',
-	orange = '#fab387',
-	green = '#a6e3a1',
-	blue = '#80A7EA',
+    red = '#cdd6f4',
+    grey = '#181825',
+    black = '#303446',
+    white = '#1e1e2e',
+    light_green = '#6c7086',
+    orange = '#fab387',
+    green = '#a6e3a1',
+    blue = '#80A7EA',
 }
 
 local theme = {
