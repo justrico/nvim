@@ -47,6 +47,10 @@ local basic_map = {
         -- change windows layout
     ['n|<leader>sh'] = map('<c-w>b<c-w>K'):noremap():silent(),
     ['n|<leader>sv'] = map('<c-w>b<c-w>H'):noremap():silent(),
+    -- visual mode
+        -- indent
+    ['v|>'] = map('>gv'):noremap(),
+    ['v|<'] = map('<gv'):noremap(),
 }
 
 bind.nvim_load_mapping(basic_map)
