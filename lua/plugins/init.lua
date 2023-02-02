@@ -1,4 +1,5 @@
-require('plugins.packer')
+--require('plugins.packer')
+require('plugins.lazynvim')
 require('plugins.ui')
 require('plugins.telescope')
 require('plugins.treesitter')
