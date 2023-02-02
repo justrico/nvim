@@ -48,5 +48,7 @@ return require('packer').startup(function(use)
     use 'numToStr/Comment.nvim'
     use 'fedepujol/move.nvim'
     use 'lukas-reineke/indent-blankline.nvim'
+
+    use 'numToStr/FTerm.nvim'
 end)
 

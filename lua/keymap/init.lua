@@ -4,30 +4,30 @@ local map = bind.map_cmd
 local mapcr = bind.map_with_cr
 
 local basic_map = {
-	-- normal mode
-	['n|;'] = map(':'):noremap(),
-	['n|s'] = map(''):noremap(),
-		-- save & quit
-	['n|S'] = mapcr('w'):noremap(),
+    -- normal mode
+    ['n|;'] = map(':'):noremap(),
+    ['n|s'] = map(''):noremap(),
+        -- save & quit
+    ['n|S'] = mapcr('w'):noremap(),
     ['n|Q'] = mapcr('BufferLinePickClose'):noremap():silent(),
-	['n|<A-q>'] = mapcr('q'):noremap(),
-	['n|<A-Q>'] = mapcr('qa'):noremap(),
-	['n|l'] = map('u'):noremap(),
-		-- search move
-	['n|='] = map('nzz'):noremap(),
-	['n|-'] = map('Nzz'):noremap(),
-		-- toggle search highlight
-	['n|<leader>h'] = mapcr('set hlsearch!'):noremap():silent(),
+    ['n|<A-q>'] = mapcr('q'):noremap(),
+    ['n|<A-Q>'] = mapcr('qa'):noremap(),
+    ['n|l'] = map('u'):noremap(),
+        -- search move
+    ['n|='] = map('nzz'):noremap(),
+    ['n|-'] = map('Nzz'):noremap(),
+        -- toggle search highlight
+    ['n|<leader>h'] = mapcr('set hlsearch!'):noremap():silent(),
         -- buffer
     ['n|tb'] = mapcr('BufferLinePick'):noremap():silent(),
     --['n|<leader>ti'] = mapcr('bnext'):noremap(),
     --['n|<leader>tn'] = mapcr('bprev'):noremap(),
-		-- tab management
-	['n|tu'] = mapcr('tabnew'):noremap():silent(),
-	['n|ti'] = mapcr('tabnext'):noremap():silent(),
-	['n|tn'] = mapcr('tabprevious'):noremap():silent(),
-	['n|tmi'] = mapcr('+tabmove'):noremap():silent(),
-	['n|tmn'] = mapcr('-tabmove'):noremap():silent(),
+        -- tab management
+    ['n|tu'] = mapcr('tabnew'):noremap():silent(),
+    ['n|ti'] = mapcr('tabnext'):noremap():silent(),
+    ['n|tn'] = mapcr('tabprevious'):noremap():silent(),
+    ['n|tmi'] = mapcr('+tabmove'):noremap():silent(),
+    ['n|tmn'] = mapcr('-tabmove'):noremap():silent(),
         -- window cursor movement
     ['n|<leader>w'] = map('<c-w>w'):noremap():silent(),  -- cursor loop in windows
     ['n|<leader>n'] = map('<c-w>h'):noremap():silent(),
