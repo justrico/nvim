@@ -50,5 +50,12 @@ return require('packer').startup(function(use)
     use 'lukas-reineke/indent-blankline.nvim'
 
     use 'numToStr/FTerm.nvim'
+
+    -- set github mirror
+    -- config = {
+    --     git = {
+    --         default_url_format = "https://ghproxy.com/https://github.com/%s"
+    --     }
+    -- }
 end)
 
