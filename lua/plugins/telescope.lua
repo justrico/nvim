@@ -6,6 +6,7 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 local action_layout = require('telescope.actions.layout')
 require('telescope').setup({
     defaults = {
+        prompt_prefix = '🔍',
         file_ignore_patterns = { ".git/", ".cache", "%.class" },
         mappings = {
             i = {
