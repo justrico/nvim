@@ -11,6 +11,14 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- This is not support by author, but works
+-- https://github.com/folke/lazy.nvim/issues/468
+-- https://github.com/folke/lazy.nvim/issues/411
+-- change default keymaps in lazy floaterm window
+local vconf = require('lazy.view.config')
+vconf.commands.update.key = "F"
+vconf.commands.update.key_plugin = "f"
+
 return require('lazy').setup({
     'nvim-tree/nvim-web-devicons',
     --'rcarriga/nvim-notify',
@@ -54,9 +62,28 @@ return require('lazy').setup({
 
     'numToStr/FTerm.nvim',
 
+    -- autocompletion
+    { 'hrsh7th/nvim-cmp',
+        dependencies = {
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path'
+        },
+    },
+
+    -- snippets
+    { 'L3MON4D3/LuaSnip',
+        -- version = "<CurrentMajor>.*", -- may cause error, follow latest release
+        build = "make install_jsregexp", -- install jsregexp (optional!)
+        dependencies = {
+            'saadparwaiz1/cmp_luasnip',
+        },
+    },
+
     -- DO NOT change the following order
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
+
+
 })
 
