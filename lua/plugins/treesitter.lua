@@ -12,7 +12,7 @@
 
 require 'nvim-treesitter.configs'.setup {
     -- A list of parser names, or "all"
-    ensure_installed = { "help", "c", "cpp", "javascript", "typescript", "html", "css", "lua", "go", "python", "rust", "vim" },
+    ensure_installed = { "help", "c", "cpp", "javascript", "typescript", "markdown", "html", "css", "lua", "go", "python", "rust" },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,
@@ -40,5 +40,19 @@ require 'nvim-treesitter.configs'.setup {
         -- Using this option may slow down your editor, and you may see some duplicate highlights.
         -- Instead of true it can also be a list of languages
         additional_vim_regex_highlighting = false,
+    },
+    rainbow = {
+        enable = false,
+        extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+        max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
+    },
+    indent = { enable = false, disable = {} },
+    context_commentstring = {
+        enable = true,
+        config = {
+            typescript = "// %s",
+            css = "/* %s */",
+            vue = "<!-- %s -->",
+        }
     },
 }

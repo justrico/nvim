@@ -50,7 +50,13 @@ return require('lazy').setup({
     'numToStr/Comment.nvim',
     'fedepujol/move.nvim',
     'lukas-reineke/indent-blankline.nvim',
+    'windwp/nvim-autopairs',
 
     'numToStr/FTerm.nvim',
+
+    -- DO NOT change the following order
+    'williamboman/mason.nvim',
+    'williamboman/mason-lspconfig.nvim',
+    'neovim/nvim-lspconfig',
 })
 
