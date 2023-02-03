@@ -1,3 +1,8 @@
+local status_ok, treesitter = pcall(require, 'nvim-treesitter')
+if not status_ok then
+    return
+end
+
 -- vim.opt.foldmethod     = 'expr'
 -- vim.opt.foldexpr       = 'nvim_treesitter#foldexpr()'
 --- WORKAROUND

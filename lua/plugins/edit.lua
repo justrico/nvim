@@ -1,3 +1,18 @@
+local status_ok, leap = pcall(require, 'leap')
+if not status_ok then
+    return
+end
+
+local status_ok, move = pcall(require, 'move')
+if not status_ok then
+    return
+end
+
+local status_ok, Comment = pcall(require, 'Comment')
+if not status_ok then
+    return
+end
+
 local bind = require('keymap.binding')
 local map = bind.map_cmd
 local mapcr = bind.map_with_cr
@@ -10,9 +25,9 @@ local leap_map = {
 }
 bind.nvim_load_mapping(leap_map)
 
-local leap = require('leap').opts
-leap.safe_labels = {} -- disable auto jump first match
-leap.highlight_unlabeled_phase_one_targets = true
+local leap_opts = leap.opts
+leap_opts.safe_labels = {} -- disable auto jump first match
+leap_opts.highlight_unlabeled_phase_one_targets = true
 
 
 ------ [ move.nvim ] ------
@@ -26,7 +41,7 @@ bind.nvim_load_mapping(move_map)
 
 
 ------ [ Comment.nvim ] ------
-require('Comment').setup({
+Comment.setup({
     ---Add a space b/w comment and the line
     padding = true,
     ---Whether the cursor should stay at its position

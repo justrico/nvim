@@ -1,8 +1,13 @@
+local status_ok, fterm = pcall(require, 'FTerm')
+if not status_ok then
+    return
+end
+
 local keymap = vim.api.nvim_set_keymap
 local nore = { noremap = true }
 local nosi = { noremap = true, silent = true }
 
-require('FTerm').setup({
+fterm.setup({
     ---Filetype of the terminal buffer
     ---@type string
     ft = 'FTerm',
@@ -72,20 +77,20 @@ vim.keymap.set('n', '<F5>', function()
     if exec ~= nil then
         if exec == 'c' then
             local cb_fname = fname..'out'
-            require('FTerm').scratch({
+            fterm.scratch({
                 cmd = { exec, { buf, '-o', '&& ./a.out' } },
                 border = 'rounded',
                 dimensions = dim
             })
         elseif exec == 'cpp' then
             local cb_fname = fname..'.out'
-            require('FTerm').scratch({
+            fterm.scratch({
                 cmd = { exec, buf, '-Wall', '&& ./a.out' },
                 border = 'rounded',
                 dimensions = dim
             })
         else
-            require('FTerm').scratch({
+            fterm.scratch({
                 cmd = { exec, buf },
                 border = 'rounded',
                 dimensions = dim

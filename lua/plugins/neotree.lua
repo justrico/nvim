@@ -1,9 +1,14 @@
+local status_ok, neotree = pcall(require, 'neo-tree')
+if not status_ok then
+    return
+end
+
 local keymap = vim.api.nvim_set_keymap
 local nosi = { noremap = true, silent = true }
 
 keymap('n', 'tt', ':NeoTreeShowToggle<cr>', nosi)
 
-require("neo-tree").setup({
+neotree.setup({
     close_if_last_window = false,
     popup_border_style = "rounded",
     enable_git_status = true,

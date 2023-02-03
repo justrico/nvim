@@ -1,4 +1,9 @@
-require('nvim-autopairs').setup({
+local status_ok, autopairs = pcall(require, 'nvim-autopairs')
+if not status_ok then
+    return
+end
+
+autopairs.setup({
     disable_filetype = { 'TelescopePrompt' },
     disable_in_macro = false, -- disable when recording or executing a macro
     disable_in_visualblock = false, -- disable when insert after visual block mode

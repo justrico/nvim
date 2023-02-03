@@ -1,4 +1,8 @@
 -- 切换到 nvim-neo-tree, 不再用 nvimtree
+local status_ok, nvimtree = pcall(require, 'nvim-tree')
+if not status_ok then
+    return
+end
 
 local keymap = vim.api.nvim_set_keymap
 local nosi = { noremap = true, silent = true }
@@ -29,7 +33,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 
 ---@diagnostic disable: undefined-global
-require("nvim-tree").setup { -- BEGIN_DEFAULT_OPTS
+nvimtree.setup { -- BEGIN_DEFAULT_OPTS
     -- auto_close = true, -- removed by author, https://github.com/nvim-tree/nvim-tree.lua/issues/1005
 	auto_reload_on_write = true,
 	disable_netrw = true,

@@ -1,9 +1,29 @@
+local status_ok, catppuccin = pcall(require, 'catppuccin')
+if not status_ok then
+    return
+end
+
+local status_ok, blankline = pcall(require, 'indent_blankline')
+if not status_ok then
+    return
+end
+
+local status_ok, bufferline = pcall(require, 'bufferline')
+if not status_ok then
+    return
+end
+
+local status_ok, lualine = pcall(require, 'lualine')
+if not status_ok then
+    return
+end
+
 -- catppuccin
 vim.cmd.colorscheme "catppuccin-frappe"
 
 
 -- indent-blankline.nvim
-require('indent_blankline').setup{
+blankline.setup{
     enabled = true,
     space_char_blankline = " ",
     use_treesitter = true,
@@ -47,7 +67,7 @@ require('indent_blankline').setup{
 
 
 -- bufferline
-require('bufferline').setup{
+bufferline.setup{
     options = {
         mode = "buffers", -- set to "tabs" to only show tabpages instead
         numbers = "none", -- "none" | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }):string
@@ -230,7 +250,7 @@ local progress = {
 	separator = { left = "", right = "" },
 }
 
-require('lualine').setup {
+lualine.setup {
 
 	options = {
 		icons_enabled = true,
