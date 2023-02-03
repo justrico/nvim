@@ -1,4 +1,5 @@
 require('core')
 require('keymap')
 require('plugins')
+require('cmpsni')
 require('lsp')

@@ -5,7 +5,7 @@ local mapcr = bind.map_with_cr
 
 local basic_map = {
     -- normal mode
-    ['n|;'] = map(':'):noremap(),
+    -- ['n|;'] = map(':'):noremap(),
     ['n|s'] = map(''):noremap(),
         -- save & quit
     ['n|S'] = mapcr('w'):noremap(),

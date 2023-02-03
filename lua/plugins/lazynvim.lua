@@ -63,27 +63,22 @@ return require('lazy').setup({
     'numToStr/FTerm.nvim',
 
     -- autocompletion
-    { 'hrsh7th/nvim-cmp',
-        dependencies = {
-            'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-path'
-        },
-    },
+    'hrsh7th/nvim-cmp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
 
     -- snippets
     { 'L3MON4D3/LuaSnip',
         -- version = "<CurrentMajor>.*", -- may cause error, follow latest release
         build = "make install_jsregexp", -- install jsregexp (optional!)
-        dependencies = {
-            'saadparwaiz1/cmp_luasnip',
-        },
     },
+    'saadparwaiz1/cmp_luasnip',
+    'rafamadriz/friendly-snippets',
 
     -- DO NOT change the following order
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
     'neovim/nvim-lspconfig',
-
 
 })
 
