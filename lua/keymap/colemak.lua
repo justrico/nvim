@@ -13,10 +13,6 @@ keymap( '', 'n', 'h', nosi )
 keymap( '', 'e', 'j', nosi )
 keymap( '', 'u', 'k', nosi )
 keymap( '', 'i', 'l', nosi )
-keymap( 'i', '<C-n>', '<Esc>h', nosi )
-keymap( 'i', '<C-e>', '<Esc>j', nosi )
-keymap( 'i', '<C-u>', '<Esc>k', nosi )
-keymap( 'i', '<C-i>', '<Esc>l', nosi )
 
 -- faster move
 keymap( '', 'U', '3k', nosi )

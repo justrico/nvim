@@ -5,7 +5,7 @@ local mapcr = bind.map_with_cr
 
 local basic_map = {
     -- normal mode
-    --['n|;'] = map(':'):noremap(),
+    -- ['n|;'] = map(':'):noremap(),
     ['n|s'] = map(''):noremap(),
         -- save & quit
     ['n|S'] = mapcr('w'):noremap(),
@@ -51,6 +51,11 @@ local basic_map = {
         -- indent
     ['v|>'] = map('>gv'):noremap(),
     ['v|<'] = map('<gv'):noremap(),
+    -- insert mode
+    ['i|<A-u>'] = map('<Esc>ka'):noremap():silent(),
+    ['i|<A-e>'] = map('<Esc>ja'):noremap():silent(),
+    ['i|<A-n>'] = map('<Esc>ha'):noremap():silent(),
+    ['i|<A-i>'] = map('<Esc>la'):noremap():silent(), -- DO NOT use <C-i>, it's same as <Tab> on terminal
 }
 
 bind.nvim_load_mapping(basic_map)
