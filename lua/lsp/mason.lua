@@ -1,4 +1,9 @@
-require('mason').setup({
+local mason_status, mason = pcall(require, 'mason')
+if not mason_status then
+    return
+end
+
+mason.setup({
     -- The directory in which to install packages.
     --install_root_dir = path.concat { vim.fn.stdpath "data", "mason" },
 

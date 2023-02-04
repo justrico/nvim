@@ -24,12 +24,12 @@ cmp.setup({
         end,
     },
     mapping = cmp.mapping.preset.insert({
-        ['<A-u>'] = cmp.mapping.select_prev_item(), -- previous suggestion
-        ['<A-e>'] = cmp.mapping.select_next_item(), -- next suggestion
-        ['<A-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<A-f>'] = cmp.mapping.scroll_docs(4),
-        ['<A-c>'] = cmp.mapping.complete(), -- show completion suggestions
-        ['<A-t>'] = cmp.mapping.abort(), -- close completion window
+        ['<C-u>'] = cmp.mapping.select_prev_item(), -- previous suggestion
+        ['<C-e>'] = cmp.mapping.select_next_item(), -- next suggestion
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-f>'] = cmp.mapping.scroll_docs(4),
+        ['<C-c>'] = cmp.mapping.complete(), -- show completion suggestions
+        ['<C-t>'] = cmp.mapping.abort(), -- close completion window
         ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
