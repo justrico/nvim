@@ -60,6 +60,7 @@ return require('lazy').setup({
     'lukas-reineke/indent-blankline.nvim',
     'windwp/nvim-autopairs',
 
+    'rcarriga/nvim-notify',
     'numToStr/FTerm.nvim',
 
     -- autocompletion
