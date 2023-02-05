@@ -1,31 +1,63 @@
-local status_ok, catppuccin = pcall(require, 'catppuccin')
-if not status_ok then
+local catppuccin_status, catppuccin = pcall(require, 'catppuccin')
+if not catppuccin_status then
     return
 end
 
-local status_ok, blankline = pcall(require, 'indent_blankline')
-if not status_ok then
+local indent_blankline_status, blankline = pcall(require, 'indent_blankline')
+if not indent_blankline_status then
     return
 end
 
-local status_ok, bufferline = pcall(require, 'bufferline')
-if not status_ok then
+local bufferline_status, bufferline = pcall(require, 'bufferline')
+if not bufferline_status then
     return
 end
 
-local status_ok, lualine = pcall(require, 'lualine')
-if not status_ok then
+local lualine_status, lualine = pcall(require, 'lualine')
+if not lualine_status then
     return
 end
 
 -- catppuccin
+catppuccin.setup({
+    -- following is related to cmp highlights
+    -- https://github.com/catppuccin/nvim/discussions/323#discussioncomment-4410359
+    custom_highlights = function(C)
+        return {
+            CmpItemKindSnippet = { fg = C.base, bg = C.mauve },
+            CmpItemKindKeyword = { fg = C.base, bg = C.red },
+            CmpItemKindText = { fg = C.base, bg = C.teal },
+            CmpItemKindMethod = { fg = C.base, bg = C.blue },
+            CmpItemKindConstructor = { fg = C.base, bg = C.blue },
+            CmpItemKindFunction = { fg = C.base, bg = C.blue },
+            CmpItemKindFolder = { fg = C.base, bg = C.blue },
+            CmpItemKindModule = { fg = C.base, bg = C.blue },
+            CmpItemKindConstant = { fg = C.base, bg = C.peach },
+            CmpItemKindField = { fg = C.base, bg = C.green },
+            CmpItemKindProperty = { fg = C.base, bg = C.green },
+            CmpItemKindEnum = { fg = C.base, bg = C.green },
+            CmpItemKindUnit = { fg = C.base, bg = C.green },
+            CmpItemKindClass = { fg = C.base, bg = C.yellow },
+            CmpItemKindVariable = { fg = C.base, bg = C.flamingo },
+            CmpItemKindFile = { fg = C.base, bg = C.blue },
+            CmpItemKindInterface = { fg = C.base, bg = C.yellow },
+            CmpItemKindColor = { fg = C.base, bg = C.red },
+            CmpItemKindReference = { fg = C.base, bg = C.red },
+            CmpItemKindEnumMember = { fg = C.base, bg = C.red },
+            CmpItemKindStruct = { fg = C.base, bg = C.blue },
+            CmpItemKindValue = { fg = C.base, bg = C.peach },
+            CmpItemKindEvent = { fg = C.base, bg = C.blue },
+            CmpItemKindOperator = { fg = C.base, bg = C.blue },
+            CmpItemKindTypeParameter = { fg = C.base, bg = C.blue },
+            CmpItemKindCopilot = { fg = C.base, bg = C.teal },
+        }
+    end,
+})
 vim.cmd.colorscheme "catppuccin-frappe"
-
 
 -- indent-blankline.nvim
 blankline.setup{
     enabled = true,
-    space_char_blankline = " ",
     use_treesitter = true,
     char_highlight = 'LineNr',
     space_char_blankline = ' ',
@@ -137,195 +169,194 @@ local colors = {
 }
 
 local theme = {
-	normal = {
-		a = { fg = colors.black, bg = colors.blue },
-		b = { fg = colors.blue, bg = colors.white },
-		c = { fg = colors.white, bg = colors.black },
-		z = { fg = colors.white, bg = colors.black },
-	},
-	insert = { a = { fg = colors.black, bg = colors.orange } },
-	visual = { a = { fg = colors.black, bg = colors.green } },
-	replace = { a = { fg = colors.black, bg = colors.green } },
+    normal = {
+        a = { fg = colors.black, bg = colors.blue },
+        b = { fg = colors.blue, bg = colors.white },
+        c = { fg = colors.white, bg = colors.black },
+        z = { fg = colors.white, bg = colors.black },
+    },
+    insert = { a = { fg = colors.black, bg = colors.orange } },
+    visual = { a = { fg = colors.black, bg = colors.green } },
+    replace = { a = { fg = colors.black, bg = colors.green } },
 }
 
 local vim_icons = {
-	function()
-		return " "
-	end,
-	separator = { left = "", right = "" },
-	color = { bg = "#1e1e2e", fg = "#80A7EA" },
+    function()
+        return " "
+    end,
+    separator = { left = "", right = "" },
+    color = { bg = "#1e1e2e", fg = "#80A7EA" },
 }
 
 local space = {
-	function()
-		return " "
-	end,
-	color = { bg = colors.black, fg = "#80A7EA" },
+    function()
+        return " "
+    end,
+    color = { bg = colors.black, fg = "#80A7EA" },
 }
 
 local filename = {
-	'filename',
-	color = { bg = "#80A7EA", fg = "#242735" },
-	separator = { left = "", right = "" },
+    'filename',
+    color = { bg = "#80A7EA", fg = "#242735" },
+    separator = { left = "", right = "" },
 }
 
 local filetype = {
-	"filetype",
-	icon_only = true,
-	colored = true,
-	color = { bg = "#1e1e2e" },
-	separator = { left = "", right = "" },
+    "filetype",
+    icon_only = true,
+    colored = true,
+    color = { bg = "#1e1e2e" },
+    separator = { left = "", right = "" },
 }
 
 local filetype_tab = {
-	"filetype",
-	icon_only = true,
-	colored = true,
-	color = { bg = "#1e1e2e" },
+    "filetype",
+    icon_only = true,
+    colored = true,
+    color = { bg = "#1e1e2e" },
 }
 
 local fileformat = {
-	'fileformat',
-	color = { bg = "#b4befe", fg = "#1e1e2e" },
-	separator = { left = "", right = "" },
+    'fileformat',
+    color = { bg = "#b4befe", fg = "#1e1e2e" },
+    separator = { left = "", right = "" },
 }
 
 local encoding = {
-	'encoding',
-	color = { bg = "#1e1e2e", fg = "#80A7EA" },
-	separator = { left = "", right = "" },
+    'encoding',
+    color = { bg = "#1e1e2e", fg = "#80A7EA" },
+    separator = { left = "", right = "" },
 }
 
 local branch = {
-	'branch',
-	color = { bg = "#a6e3a1", fg = "#1e1e2e" },
-	separator = { left = "", right = "" },
+    'branch',
+    color = { bg = "#a6e3a1", fg = "#1e1e2e" },
+    separator = { left = "", right = "" },
 }
 
 local diff = {
-	"diff",
-	color = { bg = "#1e1e2e", fg = "#1e1e2e" },
-	separator = { left = "", right = "" },
+    "diff",
+    color = { bg = "#1e1e2e", fg = "#1e1e2e" },
+    separator = { left = "", right = "" },
 }
 
 local modes = {
-	'mode', fmt = function(str) return str:sub(1, 1) end,
-	color = { bg = "#fab387", fg = "#1e1e2e" },
-	separator = { left = "", right = "" },
+    'mode', fmt = function(str) return str:sub(1, 1) end,
+    color = { bg = "#fab387", fg = "#1e1e2e" },
+    separator = { left = "", right = "" },
 }
 
 local function getLspName()
-	local msg = 'No Active Lsp'
-	local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-	local clients = vim.lsp.get_active_clients()
-	if next(clients) == nil then
-		return msg
-	end
-	for _, client in ipairs(clients) do
-		local filetypes = client.config.filetypes
-		if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-			return "  " .. client.name
-		end
-	end
-	return "  " .. msg
+    local msg = 'No Active Lsp'
+    local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+    local clients = vim.lsp.get_active_clients()
+    if next(clients) == nil then
+        return msg
+    end
+    for _, client in ipairs(clients) do
+        local filetypes = client.config.filetypes
+        if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+            return "  " .. client.name
+        end
+    end
+    return "  " .. msg
 end
 
 local dia = {
-	'diagnostics',
-	color = { bg = "#1e1e2e", fg = "#80A7EA" },
-	separator = { left = "", right = "" },
+    'diagnostics',
+    color = { bg = "#1e1e2e", fg = "#80A7EA" },
+    separator = { left = "", right = "" },
 }
 
 local lsp = {
-	function()
-		return getLspName()
-	end,
-	separator = { left = "", right = "" },
-	color = { bg = "#f38ba8", fg = "#1e1e2e" },
+    function()
+        return getLspName()
+    end,
+    separator = { left = "", right = "" },
+    color = { bg = "#f38ba8", fg = "#1e1e2e" },
 }
 
 local progress = {
     'progress',
     color = { fg = "#b4befe", bg = "#1e1e2e" },
-	separator = { left = "", right = "" },
+    separator = { left = "", right = "" },
 }
 
 lualine.setup {
+    options = {
+        icons_enabled = true,
+        theme = theme,
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
+        disabled_filetypes = {
+            statusline = {},
+            winbar = {},
+        },
+        ignore_focus = {},
+        always_divide_middle = true,
+        globalstatus = true,
+        refresh = {
+            statusline = 1000,
+            tabline = 1000,
+            winbar = 1000,
+        }
+    },
 
-	options = {
-		icons_enabled = true,
-		theme = theme,
-		component_separators = { left = '', right = '' },
-		section_separators = { left = '', right = '' },
-		disabled_filetypes = {
-			statusline = {},
-			winbar = {},
-		},
-		ignore_focus = {},
-		always_divide_middle = true,
-		globalstatus = true,
-		refresh = {
-			statusline = 1000,
-			tabline = 1000,
-			winbar = 1000,
-		}
-	},
-
-	sections = {
-		lualine_a = {
-			--{ 'mode', fmt = function(str) return str:gsub(str, "  ") end },
-			modes,
-			vim_icons,
-			--{ 'mode', fmt = function(str) return str:sub(1, 1) end },
-		},
-		lualine_b = {
-			space,
-		},
-		lualine_c = {
-			filename,
-			filetype,
-			space,
-			branch,
-			diff,
-		},
-		lualine_x = {
-			space,
-		},
-		lualine_y = {
-			encoding,
-			fileformat,
+    sections = {
+        lualine_a = {
+            --{ 'mode', fmt = function(str) return str:gsub(str, "  ") end },
+            modes,
+            vim_icons,
+            --{ 'mode', fmt = function(str) return str:sub(1, 1) end },
+        },
+        lualine_b = {
+            space,
+        },
+        lualine_c = {
+            filename,
+            filetype,
+            space,
+            branch,
+            diff,
+        },
+        lualine_x = {
+            space,
+        },
+        lualine_y = {
+            encoding,
+            fileformat,
             progress,
-			space,
-		},
-		lualine_z = {
-			dia,
-			lsp,
-		}
-	},
-	inactive_sections = {
-		lualine_a = {},
-		lualine_b = {},
-		lualine_c = { 'filename' },
-		lualine_x = { 'location' },
-		lualine_y = {},
-		lualine_z = {}
-	},
-	tabline = {
-		--lualine_a = {
-			--buffer,
-		--},
-		--lualine_b = {
-		--},
-		--lualine_c = {},
-		--lualine_x = {
-			--tabs,
-		--},
-		--lualine_y = {
-			--space,
-		--},
-		--lualine_z = {
-		--},
-	},
-	winbar = {},
-	inactive_winbar = {},
+            space,
+        },
+        lualine_z = {
+            dia,
+            lsp,
+        }
+    },
+    inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = { 'filename' },
+        lualine_x = { 'location' },
+        lualine_y = {},
+        lualine_z = {}
+    },
+    tabline = {
+        --lualine_a = {
+            --buffer,
+        --},
+        --lualine_b = {
+        --},
+        --lualine_c = {},
+        --lualine_x = {
+            --tabs,
+        --},
+        --lualine_y = {
+            --space,
+        --},
+        --lualine_z = {
+        --},
+    },
+    winbar = {},
+    inactive_winbar = {},
 }

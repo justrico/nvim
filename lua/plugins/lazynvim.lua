@@ -24,11 +24,11 @@ return require('lazy').setup({
     --'rcarriga/nvim-notify',
 
     { 'nvim-lualine/lualine.nvim',
-        dependencies = 'nvim-tree/nvim-web-devicons', lazy
+        dependencies = 'nvim-tree/nvim-web-devicons', lazy = true
     },
 
     { 'akinsho/bufferline.nvim', version = "v3.*",
-        dependencies = 'nvim-tree/nvim-web-devicons', lazy,
+        dependencies = 'nvim-tree/nvim-web-devicons', lazy = true,
     },
 
     { 'catppuccin/nvim', name = "catppuccin" },
@@ -47,7 +47,7 @@ return require('lazy').setup({
 
     { 'nvim-neo-tree/neo-tree.nvim',
         branch = "v2.x",
-        dependencies = { 
+        dependencies = {
             'nvim-lua/plenary.nvim',
             'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
             'MunifTanjim/nui.nvim',
@@ -82,8 +82,9 @@ return require('lazy').setup({
     'hrsh7th/cmp-nvim-lsp',
     { 'glepnir/lspsaga.nvim',
         event = 'BufRead',
-        dependencies = 'nvim-web-devicons', lazy,
+        dependencies = 'nvim-web-devicons', lazy = true,
     },
+    'onsails/lspkind.nvim'
 
 })
 

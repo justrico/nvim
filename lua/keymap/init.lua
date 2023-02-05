@@ -51,6 +51,8 @@ local basic_map = {
         -- indent
     ['v|>'] = map('>gv'):noremap(),
     ['v|<'] = map('<gv'):noremap(),
+    ['x|S'] = mapcr('w'):noremap():silent(),
+    ['x|Q'] = mapcr('BufferLinePickClose'):noremap():silent(),
     -- insert mode
     ['i|<A-u>'] = map('<Esc>ka'):noremap():silent(),
     ['i|<A-e>'] = map('<Esc>ja'):noremap():silent(),
