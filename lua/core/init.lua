@@ -24,3 +24,6 @@ vim.cmd[[ au BufNewFile,BufRead *.html,*.css,*.js,*.ts,*.vue set noexpandtab tab
 
 -- The old command below can't restore the column position
 -- vim.cmd[[ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif ]]
+
+-- Inner colorcheme
+vim.cmd [[ colorscheme slate ]]
