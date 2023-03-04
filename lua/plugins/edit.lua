@@ -1,15 +1,15 @@
-local status_ok, leap = pcall(require, 'leap')
-if not status_ok then
+local leap_status, leap = pcall(require, 'leap')
+if not leap_status then
     return
 end
 
-local status_ok, move = pcall(require, 'move')
-if not status_ok then
+local move_status, move = pcall(require, 'move')
+if not move_status then
     return
 end
 
-local status_ok, Comment = pcall(require, 'Comment')
-if not status_ok then
+local comment_status, Comment = pcall(require, 'Comment')
+if not comment_status then
     return
 end
 
@@ -20,8 +20,8 @@ local mapcr = bind.map_with_cr
 ------ [ leap.nvim ] ------
 -- require('leap').add_default_mappings(true) -- true for force mapping default keys
 local leap_map = {
-    ['n|s'] = map('<Plug>(leap-forward-to)'):noremap():silent(),
-    ['n|<C-s>'] = map('<Plug>(leap-backward-to)'):noremap():silent(),
+    ['n|sf'] = map('<Plug>(leap-forward-to)'):noremap():silent(),
+    ['n|sb'] = map('<Plug>(leap-backward-to)'):noremap():silent(),
 }
 bind.nvim_load_mapping(leap_map)
 
