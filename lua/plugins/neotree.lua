@@ -22,7 +22,7 @@ neotree.setup({
             indent_size = 2,
             padding = 1, -- extra padding on left hand side
             -- indent guides
-            with_markers = ture,
+            with_markers = true,
             indent_marker = "│",
             last_indent_marker = "└",
             highlight = "NeoTreeIndentMarker",
@@ -96,7 +96,7 @@ neotree.setup({
             ["C"] = "noop", -- disable default close_node key
             ["z"] = "close_all_nodes",
             --["Z"] = "expand_all_nodes",
-            ["a"] = { 
+            ["a"] = {
                 "add",
               -- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
               -- some commands may take optional config options, see `:h neo-tree-mappings` for details
@@ -134,7 +134,7 @@ neotree.setup({
             hide_gitignored = true,
             hide_hidden = true, -- only works on Windows for hidden files/directories
             hide_by_name = {
-                "node_modules"
+                "node_modules",
             },
             hide_by_pattern = { -- uses glob style patterns
                 --"*.meta",
@@ -143,7 +143,7 @@ neotree.setup({
             always_show = { -- remains visible even if other settings would normally hide it
             },
             never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
-                ".DS_Store",
+                ".DS_Store", ".zcompdump", ".zsh_history"
             },
             never_show_by_pattern = { -- uses glob style patterns
                 --".null-ls_*",
