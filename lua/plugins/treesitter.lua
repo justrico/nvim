@@ -17,7 +17,8 @@ end
 
 require 'nvim-treesitter.configs'.setup {
     -- A list of parser names, or "all"
-    ensure_installed = { "help", "c", "cpp", "javascript", "typescript", "markdown", "html", "css", "lua", "go", "python", "rust" },
+    -- parser 'help' has changed to 'vimdoc', see https://github.com/LazyVim/LazyVim/issues/524
+    ensure_installed = { "vimdoc", "c", "cpp", "javascript", "typescript", "markdown", "html", "css", "lua", "go", "python", "rust" },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,

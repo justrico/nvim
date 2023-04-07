@@ -80,22 +80,24 @@ lspconfig['rust_analyzer'].setup({
 })
 
 -- configure lua server (with special settings)
-lspconfig["sumneko_lua"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-    settings = { -- custom settings for lua
-        Lua = {
-            -- make the language server recognize "vim" global
-            diagnostics = {
-                globals = { "vim" },
-            },
-            workspace = {
-                -- make language server aware of runtime files
-                library = {
-                    [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                    [vim.fn.stdpath("config") .. "/lua"] = true,
-                },
-            },
-        },
-    },
-})
+-- sumneko_lua has renamed to lua_ls, see https://github.com/williamboman/mason-lspconfig.nvim/pull/148
+-- and NOT support Alpine Linux
+-- lspconfig["lua_ls"].setup({
+--     capabilities = capabilities,
+--     on_attach = on_attach,
+--     settings = { -- custom settings for lua
+--         Lua = {
+--             -- make the language server recognize "vim" global
+--             diagnostics = {
+--                 globals = { "vim" },
+--             },
+--             workspace = {
+--                 -- make language server aware of runtime files
+--                 library = {
+--                     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+--                     [vim.fn.stdpath("config") .. "/lua"] = true,
+--                 },
+--             },
+--         },
+--     },
+-- })

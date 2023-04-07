@@ -33,7 +33,9 @@ return require('lazy').setup({
 
     { 'catppuccin/nvim', name = "catppuccin" },
 
-    { 'nvim-treesitter/nvim-treesitter', build = ":TSUpdate" },
+    { 'nvim-treesitter/nvim-treesitter',
+        build = ":TSUpdate",
+    },
 
     { 'nvim-telescope/telescope.nvim', version = '0.1.1',
         -- or                        , branch = '0.1.x',
